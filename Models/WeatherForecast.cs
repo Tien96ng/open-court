@@ -1,6 +1,6 @@
 using System;
 
-namespace open_court
+namespace open_court.Models
 {
     public class WeatherForecast
     {
