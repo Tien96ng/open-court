@@ -1,4 +1,4 @@
-# <div align="center"> **Open Court** 🍺  </div>
+# <div align="center"> **Open Court** 🏀  </div>
 ### <div align="center"> Find a basketball court near you! </div>
 
 
