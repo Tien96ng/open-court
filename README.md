@@ -37,7 +37,7 @@ A centralized destination to view local to nationwide indoor and outdoor basketb
 <summary>Open to view the Diagram</summary>
 
 ### **Mock Landing Page Design via [Draw.io](https://app.diagrams.net/)**
-![](Design/Open-Court.svg)
+![](Design/Open-Court-Home.svg)
 
 </details>
 
