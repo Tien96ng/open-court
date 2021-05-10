@@ -19,11 +19,24 @@ namespace open_court.Models
     public int NumberOfHoops { get; set; }
 
     [Required]
+    [Range(0, 99999, ErrorMessage = "Total Rating Count can't be a negative number.")]
+    public int TotalRatingCount { get; set; }
+
+    [Required]
+    [Range(0, 99999, ErrorMessage = "Total Rating amount can't be a negative number.")]
+    public int TotalRating { get; set; }
+
+    [Required]
     [Range(typeof(bool), "true", "false")]
     public boolean IsIndoor { get; set; }
 
     [Required]
     [Range(typeof(bool), "true", "false")]
     public boolean IsCovidOpen { get; set; }
+
+    // Bathroom?
+    // Water Fountain?
+    // Parking? Street Parking?
+
   }
 }
