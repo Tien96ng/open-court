@@ -10,7 +10,7 @@ namespace open_court.Models
     {
       builder.Entity<Court>()
         .HasData(
-          new Court { CourtId = 0,  Name = "Kandle Park", Address = "2323 N Shirley St, Tacoma, WA 98407", NumberOfHoops = 6, TotalRatingCount = 0, TotalRating = 0, IsIndoor = false, IsCovidOpen = true }
+          new Court { CourtId = 1,  Name = "Kandle Park", Address = "2323 N Shirley St, Tacoma, WA 98407", NumberOfHoops = 6, TotalRatingCount = 0, TotalRating = 0, IsIndoor = false, IsCovidOpen = true }
         );
     }
 
