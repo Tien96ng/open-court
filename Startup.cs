@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using open_court.Models;
 
 namespace open_court
 {
@@ -22,6 +24,10 @@ namespace open_court
         {
 
             services.AddControllersWithViews();
+
+            services.AddDbContext<OpenCourtContext>(opt =>
+                opt.UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
+            services.AddControllers();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

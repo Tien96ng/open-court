@@ -28,11 +28,11 @@ namespace open_court.Models
 
     [Required]
     [Range(typeof(bool), "true", "false")]
-    public boolean IsIndoor { get; set; }
+    public bool IsIndoor { get; set; }
 
     [Required]
     [Range(typeof(bool), "true", "false")]
-    public boolean IsCovidOpen { get; set; }
+    public bool IsCovidOpen { get; set; }
 
     // Bathroom?
     // Water Fountain?
