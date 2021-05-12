@@ -8,7 +8,7 @@ namespace open_court.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Businesses",
+                name: "Courts",
                 columns: table => new
                 {
                     CourtId = table.Column<int>(type: "int", nullable: false)
@@ -23,11 +23,11 @@ namespace open_court.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Businesses", x => x.CourtId);
+                    table.PrimaryKey("PK_Courts", x => x.CourtId);
                 });
 
             migrationBuilder.InsertData(
-                table: "Businesses",
+                table: "Courts",
                 columns: new[] { "CourtId", "Address", "IsCovidOpen", "IsIndoor", "Name", "NumberOfHoops", "TotalRating", "TotalRatingCount" },
                 values: new object[] { 1, "2323 N Shirley St, Tacoma, WA 98407", true, false, "Kandle Park", 6, 0, 0 });
         }
@@ -35,7 +35,7 @@ namespace open_court.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Businesses");
+                name: "Courts");
         }
     }
 }

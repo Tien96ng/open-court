@@ -8,7 +8,7 @@ using open_court.Models;
 namespace open_court.Migrations
 {
     [DbContext(typeof(OpenCourtContext))]
-    [Migration("20210511222233_Initial")]
+    [Migration("20210512200641_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,7 +51,7 @@ namespace open_court.Migrations
 
                     b.HasKey("CourtId");
 
-                    b.ToTable("Businesses");
+                    b.ToTable("Courts");
 
                     b.HasData(
                         new

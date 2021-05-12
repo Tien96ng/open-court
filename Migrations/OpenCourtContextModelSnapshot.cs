@@ -49,7 +49,7 @@ namespace open_court.Migrations
 
                     b.HasKey("CourtId");
 
-                    b.ToTable("Businesses");
+                    b.ToTable("Courts");
 
                     b.HasData(
                         new
