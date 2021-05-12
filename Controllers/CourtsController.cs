@@ -14,13 +14,14 @@ namespace open_court.Controllers
   {
     private readonly OpenCourtContext _db;
     public CourtsController(OpenCourtContext db) {
-      _db =db;
+      _db = db;
     }
 
     // GET courts
-    public ActionResult <IEnumerable<Court>> Get()
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Court>>> Get()
     {
-      return _db.Courts;
+      return await _db.Courts.ToListAsync();
     }
   }
 }
