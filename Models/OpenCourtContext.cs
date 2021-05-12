@@ -14,6 +14,6 @@ namespace open_court.Models
         );
     }
 
-    public DbSet<Court> Businesses { get; set; }
+    public DbSet<Court> Courts { get; set; }
   }
 }
