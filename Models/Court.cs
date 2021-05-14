@@ -1,9 +1,16 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace open_court.Models
 {
   public class Court {
+
+    public Court()
+    {
+      this.Reviews = new HashSet<Review> ();
+    }
+
     public int CourtId { get; set; }
     
     [Required]
@@ -34,9 +41,11 @@ namespace open_court.Models
     [Range(typeof(bool), "true", "false")]
     public bool IsCovidOpen { get; set; }
 
-    // Bathroom?
-    // Water Fountain?
-    // Parking? Street Parking?
+    public virtual ICollection<Review> Reviews { get; set; }
 
   }
 }
+
+    // Bathroom?
+    // Water Fountain?
+    // Parking? Street Parking?
