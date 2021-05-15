@@ -1,3 +1,4 @@
+using System;
 using Microsoft.EntityFrameworkCore;
 
 namespace open_court.Models
@@ -29,8 +30,13 @@ namespace open_court.Models
             new Court { CourtId = 17,  Name = "Clinton City Park", Address = "5576 SE Division St, Portland, OR, 97206", NumberOfHoops = 2, TotalRatingCount = 0, TotalRating = 0, IsIndoor = false, IsCovidOpen = true }
 
         );
+      builder.Entity<Review>()
+        .HasData(
+            new Review { ReviewId = 1,  PostDate = DateTime.Now, ReviewText = "Best place to hoop in Tacoma!", CourtId = 1 }
+        );
     }
 
-    public DbSet<Court> Courts { get; set; }
+    public virtual DbSet<Court> Courts { get; set; }
+    public DbSet<Review> Reviews { get; set; }
   }
 }
