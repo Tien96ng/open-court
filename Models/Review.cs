@@ -7,6 +7,7 @@ namespace open_court.Models
     public int ReviewId { get; set; }
     public DateTime PostDate { get; set; }
     public string ReviewText { get; set; }
+    public int CourtId { get; set; }
     public virtual Court Court { get; set; }
   }
 }
