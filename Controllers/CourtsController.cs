@@ -34,17 +34,15 @@ namespace open_court.Controllers
 
     // GET /api/courts/{params}
     [HttpGet]
-    public ActionResult<IEnumerable<Court>> Get(string name, bool isIndoor)
+    public ActionResult<IEnumerable<Court>> Get(string name, bool isIndoor, string numberOfHoops)
     {
       var court = _db.Courts.AsQueryable();
-      if(name != null) {
-        court = court.Where(entry => entry.Name.Contains(name));
-      }
+      if(name != null) court = court.Where(entry => entry.Name.Contains(name));
 
-      if(isIndoor.ToString() != null)
-      {
-        court = court.Where(entry => entry.IsIndoor == isIndoor);
-      }
+      if(isIndoor.ToString() != null) court = court.Where(entry => entry.IsIndoor == isIndoor);
+
+      if(numberOfHoops != null) court = court.Where(entry => entry.NumberOfHoops.ToString() == numberOfHoops);
+      
 
       return court.ToList();
     }
