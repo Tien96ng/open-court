@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using open_court.Models;
 namespace open_court.Controllers
 {
   [ApiController]
-  [Route("[controller]")]
+  [Route("api/[controller]")]
 
   public class CourtsController : ControllerBase
   {
@@ -17,11 +18,25 @@ namespace open_court.Controllers
       _db = db;
     }
 
-    // GET courts
+    // GET /api/courts/
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Court>>> Get()
+    public ActionResult<IEnumerable<Court>> GetAll()
     {
-      return await _db.Courts.ToListAsync();
+      return _db.Courts.ToList();
+    }
+
+    // GET api//courts/{id}
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Court>> GetCourt(int id)
+    {
+      var court = await _db.Courts.FindAsync(id);
+
+      if(court == null)
+      {
+        return NotFound();
+      }
+
+      return court;
     }
   }
 }
