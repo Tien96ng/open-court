@@ -9,10 +9,11 @@ export default function FetchData() {
       {loading ? 
         <h1> Loading... </h1> : 
         courts.map((c, index) => (
-          <h2>{c.name}</h2>
+          <div key={c.courtId}>
+            <h2>{c.name} - {c.address}</h2>
+          </div>
         ))
       }
-      {}
     </>
   )
 }

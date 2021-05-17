@@ -15,7 +15,7 @@ function ContextProvider({children}) {
 
   useEffect(() => {
     fetchCourts();
-  }, [loading])
+  }, [])
 
   return(
     <Context.Provider value={{
