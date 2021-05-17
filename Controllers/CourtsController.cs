@@ -18,13 +18,6 @@ namespace open_court.Controllers
       _db = db;
     }
 
-    // GET /api/courts/
-    [HttpGet]
-    public ActionResult<IEnumerable<Court>> GetAll()
-    {
-      return _db.Courts.ToList();
-    }
-
     // GET api//courts/{id}
     [HttpGet("{id}")]
     public async Task<ActionResult<Court>> GetCourt(int id)
@@ -37,6 +30,23 @@ namespace open_court.Controllers
       }
 
       return court;
+    }
+
+    // GET /api/courts/{params}
+    [HttpGet]
+    public ActionResult<IEnumerable<Court>> Get(string name, bool isIndoor)
+    {
+      var court = _db.Courts.AsQueryable();
+      if(name != null) {
+        court = court.Where(entry => entry.Name.Contains(name));
+      }
+
+      if(isIndoor.ToString() != null)
+      {
+        court = court.Where(entry => entry.IsIndoor == isIndoor);
+      }
+
+      return court.ToList();
     }
   }
 }
