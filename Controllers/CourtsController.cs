@@ -61,5 +61,18 @@ namespace open_court.Controllers
 
       return CreatedAtAction(nameof(GetCourt), new { id = court.CourtId }, court);
     }
+
+    // DELETE /api/courts/{id}
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> DeleteCourt(int id)
+    {
+      var court = await _db.Courts.FindAsync(id);
+      if(court == null) return NotFound();
+
+      _db.Courts.Remove(court);
+      await _db.SaveChangesAsync();
+      
+      return NoContent();
+    }
   }
 }
