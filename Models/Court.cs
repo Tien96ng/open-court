@@ -34,11 +34,11 @@ namespace open_court.Models
     public int TotalRating { get; set; }
 
     [Required]
-    // [Range(typeof(bool), "true", "false")]
+    // [Range(typeof(bool), "false", "true")]
     public bool IsIndoor { get; set; }
 
     [Required]
-    // [Range(typeof(bool), "true", "false")]
+    // [Range(typeof(bool), "false", "true")]
     public bool IsCovidOpen { get; set; }
 
     public virtual ICollection<Review> Reviews { get; set; }
