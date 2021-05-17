@@ -51,5 +51,15 @@ namespace open_court.Controllers
 
       return court.ToList();
     }
+
+    // POST /api/courts
+    [HttpPost]
+    public async Task<ActionResult<Court>> Post(Court court)
+    {
+      _db.Courts.Add(court);
+      await _db.SaveChangesAsync();
+
+      return CreatedAtAction(nameof(GetCourt), new { id = court.CourtId }, court);
+    }
   }
 }
