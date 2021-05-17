@@ -74,5 +74,31 @@ namespace open_court.Controllers
       
       return NoContent();
     }
+
+    // EDIT /api/courts/{id}
+    [HttpPut("{id}")]
+    public async Task<ActionResult> EditCourt(Court court, int id)
+    {
+      var thisCourt = await _db.Courts.FindAsync(id);
+      if(thisCourt == null) return NotFound();
+
+      if(id.ToString() != null)
+      {
+        thisCourt.Name = court.Name;
+        thisCourt.Address = court.Address;
+        thisCourt.NumberOfHoops = court.NumberOfHoops;
+        thisCourt.TotalRatingCount = court.TotalRatingCount;
+        thisCourt.TotalRating = court.TotalRating;
+        thisCourt.IsIndoor = court.IsIndoor;
+        thisCourt.IsCovidOpen = court.IsCovidOpen;
+
+        _db.Entry(thisCourt).State = EntityState.Modified;
+        _db.SaveChanges();
+        return NoContent();
+      } else {
+        return NotFound();
+      }
+
+    }
   }
 }
