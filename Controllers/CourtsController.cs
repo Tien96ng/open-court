@@ -77,7 +77,7 @@ namespace open_court.Controllers
 
     // EDIT /api/courts/{id}
     [HttpPut("{id}")]
-    public async Task<ActionResult> EditCourt(Court court, int id)
+    public async Task<ActionResult<Court>> EditCourt(Court court, int id)
     {
       var thisCourt = await _db.Courts.FindAsync(id);
       if(thisCourt == null) return NotFound();
@@ -94,7 +94,7 @@ namespace open_court.Controllers
 
         _db.Entry(thisCourt).State = EntityState.Modified;
         _db.SaveChanges();
-        return NoContent();
+        return thisCourt;
       } else {
         return NotFound();
       }
