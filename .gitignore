@@ -9,6 +9,7 @@
 appsettings.json
 */appsettings.Development.json
 */EnvironmentVariables.cs
+*.env*
 
 # User-specific files
 *.suo
