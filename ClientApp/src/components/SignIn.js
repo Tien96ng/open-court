@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Context } from '../context/appContext';
-import { GoogleLogin } from 'react-google-login';
+import { GoogleLogin, GoogleLogout} from 'react-google-login';
 
 export default function SignIn() {
   const { user, setUser } = useContext(Context);
 
-  const responseGoogle = (response) => {
-    console.log(response)
+  const onFailure = (response) => {
+    setUser({error: "Failed to Login to Google Account."})
   }
 
   const onSuccess = async(response) => {
@@ -17,18 +17,41 @@ export default function SignIn() {
       profilePic: response.profileObj.imageUrl
     } 
 
-    console.log(userObj);
     setUser(userObj);
+  }
+
+  const onLogoutSuccess = async(response) => {
+    setUser(null);
+  }
+
+  const renderTryAgain = () => {
+    if(user !== null && user.error !== undefined) {
+      return <h2> {user.error} </h2>
+    }
   }
 
   return(
     <>
-      <GoogleLogin 
-        clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-        onSuccess={onSuccess}
-        onFailure={responseGoogle}
-      />
-      <button type="click" onClick={() => console.log(user)}> Check User </button>
+      {renderTryAgain()}
+      {
+        user === null ? 
+        <GoogleLogin 
+          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+          onSuccess={onSuccess}
+          onFailure={onFailure}
+          theme="dark"
+          icon={false}
+        />
+        :
+        <GoogleLogout
+          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+          buttonText="Logout"
+          onLogoutSuccess={onLogoutSuccess}
+          theme="dark"
+          icon={false}
+        />
+      }
+      
     </>
   )
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SignIn from './SignIn';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import '../css/NavMenu.css';
@@ -25,7 +26,7 @@ export default function NavMenu() {
                 <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/sign-in">Create / Sign In</NavLink>
+                <SignIn id="signIn-btn"/>
               </NavItem>
             </ul>
           </Collapse>
