@@ -13,32 +13,32 @@ namespace open_court.Models
 
     public int CourtId { get; set; }
     
-    // [Required]
-    // [StringLength(255)]
+    [Required]
+    [StringLength(255)]
     public string Name { get; set; }
 
-    // [Required]
-    // [StringLength(255)]
+    [Required]
+    [StringLength(255)]
     public string Address { get; set; }
 
-    // [Required]
-    // [Range(0, 50, ErrorMessage = "Number of Hoops can't be a negative number of more than 50.")]
+    [Required]
+    [Range(0, 50, ErrorMessage = "Number of Hoops can't be a negative number of more than 50.")]
     public int NumberOfHoops { get; set; }
 
-    // [Required]
-    // [Range(0, 99999, ErrorMessage = "Total Rating Count can't be a negative number.")]
+    [Required]
+    [Range(0, 99999, ErrorMessage = "Total Rating Count can't be a negative number.")]
     public int TotalRatingCount { get; set; }
 
-    // [Required]
-    // [Range(0, 99999, ErrorMessage = "Total Rating amount can't be a negative number.")]
+    [Required]
+    [Range(0, 99999, ErrorMessage = "Total Rating amount can't be a negative number.")]
     public int TotalRating { get; set; }
 
-    // [Required]
-    // [Range(typeof(bool), "false", "true")]
+    [Required]
+    [Range(typeof(bool), "false", "true")]
     public bool IsIndoor { get; set; }
 
-    // [Required]
-    // [Range(typeof(bool), "false", "true")]
+    [Required]
+    [Range(typeof(bool), "false", "true")]
     public bool IsCovidOpen { get; set; }
 
     public virtual ICollection<Review> Reviews { get; set; }

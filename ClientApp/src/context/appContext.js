@@ -7,7 +7,7 @@ function ContextProvider({children}) {
   const [loading, setLoading] = useState(true);
 
   const fetchCourts = async() => {
-    const response = await fetch('');
+    const response = await fetch(process.env.REACT_APP_SERVER_ENDPOINT);
     const data = await response.json();
     setCourts(data);
     setLoading(false);
@@ -21,7 +21,8 @@ function ContextProvider({children}) {
     <Context.Provider value={{
       courts,
       setCourts,
-      loading
+      loading,
+      fetchCourts
     }}>
       {children}
     </Context.Provider>

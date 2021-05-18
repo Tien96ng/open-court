@@ -1,11 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { Context } from '../context/appContext';
 import { Button, Form, FormGroup, Label, Input, Row, Col } from 'reactstrap';
 
 export default function AddCourt() {
+  const { courts, fetchCourts } = useContext(Context);
 
+  useEffect(() => {
+    fetchCourts()
+  }, [courts])
+  
   const handleSubmit = e => {
     e.preventDefault();
-    let response = fetch("", {
+    let response = fetch(process.env.REACT_APP_SERVER_ENDPOINT, {
       method: "POST",
       headers: {
         "Accept": "application/json",
