@@ -5,6 +5,7 @@ const Context = React.createContext();
 function ContextProvider({children}) {
   const [courts, setCourts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
 
   const fetchCourts = async() => {
     const response = await fetch(process.env.REACT_APP_SERVER_ENDPOINT);
@@ -22,7 +23,9 @@ function ContextProvider({children}) {
       courts,
       setCourts,
       loading,
-      fetchCourts
+      fetchCourts,
+      user,
+      setUser
     }}>
       {children}
     </Context.Provider>
