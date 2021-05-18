@@ -1,38 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Form, FormGroup, Label, Input, Row, Col } from 'reactstrap';
 
 export default function AddCourt() {
 
-  const postCourt = async(e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    try {
-      let result = await fetch('https://webhook.site/a91aac90-5cd7-4775-ba45-cd7c80d4061f', {
-        method: 'post',
-        mode: 'no-cors',
-        headers: {
-          'Accept': 'application/json',
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: e.target.name.value,
-          address: `${e.target.street.value}, ${e.target.city.value}, ${e.target.state.value}, ${e.target.zipcode.value.toString()}`,
-          numberOfHoops: e.target.numberOfHoops.value,
-          totalRatingCount: 0,
-          totalRating: 0,
-          isIndoor: e.target.indoorRadio.value === 1 ? true : false,
-          isCovidOpen: true
-        })
-      });
-
-      console.log(result);
-
-    } catch(e) {
-      console.log(e);
-    }
+    let response = fetch("", {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: e.target.name.value,
+        address: `${e.target.street.value}, ${e.target.city.value}, ${e.target.state.value}, ${e.target.zipcode.value.toString()}`,
+        numberOfHoops: e.target.numberOfHoops.value,
+        totalRatingCount: 0,
+        totalRating: 0,
+        isIndoor: e.target.indoorRadio.value === 1 ? true : false,
+        isCovidOpen: true
+      })
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    console.log(response);
   };
 
   return(
-    <Form onSubmit={postCourt}>
+    <Form onSubmit={handleSubmit}>
       <h1> Add a new Court </h1>
       <Row>
         <Col>

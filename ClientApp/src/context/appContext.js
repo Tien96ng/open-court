@@ -7,7 +7,7 @@ function ContextProvider({children}) {
   const [loading, setLoading] = useState(true);
 
   const fetchCourts = async() => {
-    const response = await fetch('api/courts');
+    const response = await fetch('');
     const data = await response.json();
     setCourts(data);
     setLoading(false);

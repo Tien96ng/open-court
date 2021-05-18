@@ -98,7 +98,16 @@ namespace open_court.Controllers
       } else {
         return NotFound();
       }
+    }
 
+    [HttpPost("new")]
+    public ActionResult<Court> PostCourt([FromBody] Court value)
+    {
+      int newId = _db.Courts.ToList().Count;
+      value.CourtId = newId;
+      _db.Courts.Add(value);
+      _db.SaveChanges();
+      return Ok(value);
     }
   }
 }
