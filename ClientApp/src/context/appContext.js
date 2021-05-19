@@ -6,6 +6,8 @@ function ContextProvider({children}) {
   const [courts, setCourts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
+  const [search, setSearch] = useState("WA");
+  const [searchResults, setSearchResults] = useState([]);
 
   const fetchCourts = async() => {
     const response = await fetch(process.env.REACT_APP_SERVER_ENDPOINT);
@@ -25,7 +27,11 @@ function ContextProvider({children}) {
       loading,
       fetchCourts,
       user,
-      setUser
+      setUser,
+      search,
+      setSearch,
+      searchResults,
+      setSearchResults
     }}>
       {children}
     </Context.Provider>

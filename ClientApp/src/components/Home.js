@@ -52,8 +52,8 @@ export function Home() {
             <h4>Over <span className="orange-text">[Placeholder]</span> basketball courts currently on Open Court.</h4>
             <hr />
             <Row>
-              {states.map(s => 
-                <Col sm="3" className="mt-2"><h5>{s}</h5></Col>
+              {states.map((s, index) => 
+                <Col key={index} sm="3" className="mt-2"><h5>{s}</h5></Col>
               )}
             </Row>
           </div>

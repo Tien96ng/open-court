@@ -10,7 +10,7 @@ export default function Footer() {
           <h5>© 2020 Copyright: Tien Nguyen</h5>
           <a href="https://github.com/Tien96ng/open-court" target="_blank" rel="noopener noreferrer">
             <h5>
-              <i class="fa fa-github"></i>
+              <i className="fa fa-github"></i>
               <span className="padding-left-5">Github</span>
             </h5>
           </a>
