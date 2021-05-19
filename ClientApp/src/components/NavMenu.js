@@ -20,6 +20,9 @@ export default function NavMenu() {
                 <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
               </NavItem>
               <NavItem>
+                <NavLink tag={Link} className="text-dark" to="/court-list">Court List</NavLink>
+              </NavItem>
+              <NavItem>
                 <SignIn id="signIn-btn"/>
               </NavItem>
             </ul>

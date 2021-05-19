@@ -6,7 +6,9 @@ export function Layout({children}) {
   return(
     <>
       <NavMenu />
-      {children}
+      <Container>
+        {children}
+      </Container>
     </>
   )
 }
