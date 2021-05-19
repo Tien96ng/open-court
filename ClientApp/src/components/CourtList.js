@@ -9,8 +9,8 @@ export default function CourtList() {
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
     sort: "Name",
-    isIndoor: false,
-    isCovidOpen: true,
+    isIndoor: "Outdoor",
+    isCovidOpen: "Covid Regulated",
     state: "America",
     totalReviews: 0,
   });
@@ -152,12 +152,14 @@ export default function CourtList() {
   };
 
   const updateIndoor = e => {
+    console.log(e.target.value)
     if (e.target.checked) {
       setFilters({...filters, isIndoor: e.target.value})
     }
   };
 
   const updateCovid = e => {
+    console.log(e.target.value)
     if (e.target.checked) {
       setFilters({...filters, isCovidOpen: e.target.value})
     }
@@ -170,7 +172,6 @@ export default function CourtList() {
           <div className="left-column">
             <h1 className="page-subtitle">Courts in {filters.state}</h1>
             <h6>{filters.totalReviews} user reviews</h6>
-           
             <FormGroup tag="fieldset">
               <legend className="bold">Sort</legend>
               <FormGroup check>
@@ -202,14 +203,14 @@ export default function CourtList() {
               <legend className="bold">Setting</legend>
               <FormGroup check>
                 <Label check>
-                  <Input type="radio" name="indoorRadio" value={true} defaultChecked onChange={updateIndoor} />
-                  Indoor
+                  <Input type="radio" name="indoorRadio" value="Outdoor" defaultChecked onChange={updateIndoor} />
+                  Outdoor
                 </Label>
               </FormGroup>
               <FormGroup check>
                 <Label check>
-                  <Input type="radio" name="indoorRadio" value={false} onChange={updateIndoor} />
-                  Outdoor
+                  <Input type="radio" name="indoorRadio" value="Indoor" onChange={updateIndoor} />
+                  Indoor
                 </Label>
               </FormGroup>
             </FormGroup>
@@ -217,13 +218,13 @@ export default function CourtList() {
               <legend className="bold">Covid Safe</legend>
               <FormGroup check>
                 <Label check>
-                  <Input type="radio" name="covidRadio" value={true} defaultChecked onChange={updateCovid} />
+                  <Input type="radio" name="covidRadio" value="Covid Regulated" defaultChecked onChange={updateCovid} />
                   Yes
                 </Label>
               </FormGroup>
               <FormGroup check>
                 <Label check>
-                  <Input type="radio" name="covidRadio" value={false} onChange={updateCovid} />
+                  <Input type="radio" name="covidRadio" value="Closed via Covid" onChange={updateCovid} />
                   No
                 </Label>
               </FormGroup>
@@ -249,8 +250,8 @@ export default function CourtList() {
               <i className="fa fa-star white-blk-outline"></i>
             </p>
             <Button outline size="sm" color="secondary">Sorted by {filters.sort}</Button>
-            <Button style={{ marginLeft: "1rem"}} outline size="sm" color="secondary">Showing courts {filters.isIndoor ? "Indoor" : "Outdoor"}</Button>
-            <Button style={{ marginLeft: "1rem"}} outline size="sm" color="secondary">Showing courts {filters.isCovidOpen ? "Closed by Covid" : "Covid Regulated"}</Button>
+            <Button style={{ marginLeft: "1rem"}} outline size="sm" color="secondary">Showing courts {filters.isIndoor}</Button>
+            <Button style={{ marginLeft: "1rem"}} outline size="sm" color="secondary">Showing courts {filters.isCovidOpen}</Button>
             {renderLists()}
           </div>
         </div>
