@@ -88,9 +88,9 @@ export default function CourtList() {
         </>
       ) 
     } else {
-      let avg = (total / count) / 100;
-      let numStars = Math.floor(5 * avg);
-      let emptyStars = 5 - numStars;
+      let avg = (total / count) * 5;
+      let emptyStars = 5 - avg;
+      let numStars = 5 - emptyStars;
       return(
         <>
           {[...Array(numStars)].map(s => {
@@ -101,6 +101,7 @@ export default function CourtList() {
           })}
         </>
       )
+      // return <>Average - {avg} | Num stars - {numStars} | Empty - {emptyStars}</>
     }
   }
 
@@ -116,6 +117,8 @@ export default function CourtList() {
                 <CardTitle tag="h5">{c.name} </CardTitle>
                 <CardText>{c.address}</CardText>
                 <CardText>{renderStars(c.totalRating, c.totalRatingCount)}</CardText>
+                <CardText>{c.totalRating}</CardText>
+                <CardText>{c.totalRatingCount}</CardText>
                 <CardText>{c.reviews.length} Reviews </CardText>
               </Card>
             )
