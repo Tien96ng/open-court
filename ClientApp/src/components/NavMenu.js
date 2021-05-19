@@ -10,12 +10,12 @@ export default function NavMenu() {
 
   return(
     <header>
-      <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
+      <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow bgc-white" light fixed>
         <Container>
           <NavbarBrand tag={Link} to="/" id="homeBtn-text">Open Court</NavbarBrand>
           <NavbarToggler onClick={toggleNavBar} className="mr-2" />
           <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!collapsed} navbar>
-            <ul className="navbar-nav flex-grow">
+            <ul className="navbar-nav flex-grow font-weight-bold">
               <NavItem>
                 <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
               </NavItem>
