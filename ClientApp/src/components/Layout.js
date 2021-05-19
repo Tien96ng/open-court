@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from 'reactstrap';
+import Footer from './Footer';
 import NavMenu  from './NavMenu';
 
 export function Layout({children}) {
@@ -7,6 +7,7 @@ export function Layout({children}) {
     <>
       <NavMenu />
       {children}
+      <Footer />
     </>
   )
 }

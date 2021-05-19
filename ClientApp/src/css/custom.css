@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,900&display=swap');
-body {
-  margin-top: 4rem;
+.container-margin-top {
+  margin-top: 6rem;
 }
 
 /* Provide sufficient contrast against white background */

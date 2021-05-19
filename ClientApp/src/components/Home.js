@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from './Footer';
 import { Parallax } from 'react-parallax';
 import { Input, Row, Col } from 'reactstrap';
 import image1 from '../img/fall.jpg';
@@ -59,7 +58,6 @@ export function Home() {
           </div>
         </div>
       </Parallax>
-      <Footer />
     </>
   );
 }
