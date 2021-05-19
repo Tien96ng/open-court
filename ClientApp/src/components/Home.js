@@ -55,7 +55,7 @@ export function Home() {
           </Col>
         </Row>
       </div>
-      <Parallax bgImage={image3} strength={200} blur={0} bgImageAlt="USA Redeem Team">
+      <Parallax bgImage={image3} strength={200} blur={0} bgImageAlt="basketball on white background">
         <div style={{ height: 700 }}>
           <div className="section-title page-subtitle">
             <h3>Browse <span className="orange-text">Courts</span> by State!</h3>
