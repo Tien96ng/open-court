@@ -1,7 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { render } from "react-dom";
-import { Label, Input, Button, FormGroup, Card, CardBody, CardText, CardTitle } from "reactstrap"
+import { Label, Input, Button, FormGroup, Card, CardText, CardTitle } from "reactstrap"
 import { Context } from "../context/appContext";
+import 'font-awesome/css/font-awesome.min.css';
 
 export default function CourtList() {
   const { courts, search, setSearchResults, searchResults } = useContext(Context);
@@ -74,6 +75,34 @@ export default function CourtList() {
     }
   }
 
+  const renderStars = (total, count) => {
+    if(count === 0) {
+      return(
+        <>
+          <i className="fa fa-star white-blk-outline"></i>
+          <i className="fa fa-star white-blk-outline"></i>
+          <i className="fa fa-star white-blk-outline"></i>
+          <i className="fa fa-star white-blk-outline"></i>
+          <i className="fa fa-star white-blk-outline"></i>
+        </>
+      ) 
+    } else {
+      let avg = (total / count) / 100;
+      let numStars = Math.floor(5 * avg);
+      let emptyStars = 5 - numStars;
+      return(
+        <>
+          {[...Array(numStars)].map(s => {
+            return <i className="fa fa-star orange-text"></i>
+          })}
+          {[...Array(emptyStars)].map(s => {
+            return <i className="fa fa-star white-blk-outline"></i>
+          })}
+        </>
+      )
+    }
+  }
+
   const renderLists = () => {
     checkSortType();
 
@@ -83,8 +112,10 @@ export default function CourtList() {
           searchResults.map(c => {
             return(
               <Card body className="court-card" key={c.courtId}>
+                {console.log(c.totalRating / c.totalRatingCount)}
                 <CardTitle tag="h5">{c.name} </CardTitle>
                 <CardText>{c.address}</CardText>
+                <CardText>{renderStars(c.totalRating, c.totalRatingCount)}</CardText>
                 <CardText>{c.reviews.length} Reviews </CardText>
               </Card>
             )
