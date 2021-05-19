@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { render } from "react-dom";
-import { Label, Input, Button, FormGroup, Card, CardText, CardTitle } from "reactstrap"
+import { Label, Input, Button, FormGroup, Card, CardText, CardTitle, Container } from "reactstrap"
 import { Context } from "../context/appContext";
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -166,7 +165,7 @@ export default function CourtList() {
   };
 
   return(
-    <>
+    <Container>
       <div className="row">
         <div className="column-1">
           <div className="left-column">
@@ -256,6 +255,6 @@ export default function CourtList() {
           </div>
         </div>
       </div>
-    </>
+    </Container>
   )
 }

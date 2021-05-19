@@ -4,7 +4,7 @@ import { Parallax } from 'react-parallax';
 import { Input, Row, Col } from 'reactstrap';
 import image1 from '../img/fall.jpg';
 import image2 from '../img/macbook.png'
-import image3 from '../img/fall.jpeg'
+import image3 from '../img/ball.jpg'
 import states from '../data/states';
 import '../css/custom.css';
 
