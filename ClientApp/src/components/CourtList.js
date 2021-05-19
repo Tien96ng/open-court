@@ -70,7 +70,7 @@ export default function CourtList() {
       setSearchResults(searchResults.sort(compareMostReviewed));
     } else if(filters.sort === "Highest Rated") {
       setSearchResults(searchResults.sort(compareHighestRated));
-    } else if(filters.sort === "Num Hoops") {
+    } else if(filters.sort === "Number of Hoops") {
       setSearchResults(searchResults.sort(compareHoops));
     }
   }
@@ -112,7 +112,6 @@ export default function CourtList() {
           searchResults.map(c => {
             return(
               <Card body className="court-card" key={c.courtId}>
-                {console.log(c.totalRating / c.totalRatingCount)}
                 <CardTitle tag="h5">{c.name} </CardTitle>
                 <CardText>{c.address}</CardText>
                 <CardText>{renderStars(c.totalRating, c.totalRatingCount)}</CardText>
@@ -139,12 +138,12 @@ export default function CourtList() {
   useEffect(() => {
     console.log("searchResults Changed!")
     if(searchResults.length > 0) {
-      setFilters({...filters, state: searchResults[0].address.split(", ")[2]});
+      setFilters({...filters, state: searchResults[0].address.split(", ")[1]});
     }
     return () => {
       console.log("Clean up Filters.")
     }
-  }, [searchResults]);
+  }, []);
 
   const updateSort = e => {
     if (e.target.checked) {
@@ -194,7 +193,7 @@ export default function CourtList() {
               </FormGroup>
               <FormGroup check>
                 <Label check>
-                  <Input type="radio" name="sortRadio" value="Num Hoops" onChange={updateSort} />
+                  <Input type="radio" name="sortRadio" value="Number of Hoops" onChange={updateSort} />
                   Most Hoops
                 </Label>
               </FormGroup>
@@ -240,7 +239,18 @@ export default function CourtList() {
                 <span className="orange-text">{searchResults.length} courts</span> match your search 
               </h2>
             }
-            <br />
+            <p>
+              <span style={{ marginRight: "0.5rem"}}>Hint: </span>
+              <span style={{ marginRight: "0.5rem"}}>2 out of 5 Average Rating</span>
+              <i className="fa fa-star orange-text"></i>
+              <i className="fa fa-star orange-text"></i>
+              <i className="fa fa-star white-blk-outline"></i>
+              <i className="fa fa-star white-blk-outline"></i>
+              <i className="fa fa-star white-blk-outline"></i>
+            </p>
+            <Button outline size="sm" color="secondary">Sorted by {filters.sort}</Button>
+            <Button style={{ marginLeft: "1rem"}} outline size="sm" color="secondary">Showing courts {filters.isIndoor ? "Indoor" : "Outdoor"}</Button>
+            <Button style={{ marginLeft: "1rem"}} outline size="sm" color="secondary">Showing courts {filters.isCovidOpen ? "Closed by Covid" : "Covid Regulated"}</Button>
             {renderLists()}
           </div>
         </div>
