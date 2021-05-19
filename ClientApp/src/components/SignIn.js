@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Context } from '../context/appContext';
+import { Button } from 'reactstrap';
 import { GoogleLogin, GoogleLogout} from 'react-google-login';
+import 'font-awesome/css/font-awesome.min.css';
 
 export default function SignIn() {
   const { user, setUser } = useContext(Context);
@@ -33,23 +35,28 @@ export default function SignIn() {
 
   return(
     <>
+
       {renderTryAgain()}
       {
         user === null ? 
-        <GoogleLogin 
+        <GoogleLogin
           clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+          render={renderProps => (
+            <Button onClick={renderProps.onClick} disabled={renderProps.disabled} color="success" size="sm"><i class="fa fa-google"></i> Login</Button>
+          )}
+          buttonText="Login"
           onSuccess={onSuccess}
           onFailure={onFailure}
-          theme="dark"
-          icon={false}
+          cookiePolicy={'single_host_origin'}
         />
         :
         <GoogleLogout
           clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+          render={renderProps => (
+            <Button onClick={renderProps.onClick} disabled={renderProps.disabled} color="danger" size="sm"><i class="fa fa-sign-out"></i> Logout</Button>
+          )}
           buttonText="Logout"
           onLogoutSuccess={onLogoutSuccess}
-          theme="dark"
-          icon={false}
         />
       }
       

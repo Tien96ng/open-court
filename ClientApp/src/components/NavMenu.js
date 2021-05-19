@@ -13,9 +13,9 @@ export default function NavMenu() {
 
   return(
     <header>
-      <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow bgc-white" light fixed="top">
+      <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white box-shadow bgc-white" light fixed="top">
         <Container>
-          <NavbarBrand tag={Link} to="/" id="homeBtn-text"><img src={logo} width="40"/>OpenCourt</NavbarBrand>
+          <NavbarBrand tag={Link} to="/" id="homeBtn-text"><img src={logo} width="20"/>OpenCourt</NavbarBrand>
           <NavbarToggler onClick={toggleNavBar} className="mr-2" />
           <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!collapsed} navbar>
             <ul className="navbar-nav flex-grow font-weight-bold">
