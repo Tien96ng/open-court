@@ -1,26 +1,64 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Parallax } from 'react-parallax';
+import { Input, Row, Col } from 'reactstrap';
+import image1 from '../img/fall.jpg';
+import image2 from '../img/macbook.png'
+import image3 from '../img/the-office.jpg'
+import states from '../data/states';
+import '../css/custom.css';
 
-export class Home extends Component {
-  static displayName = Home.name;
-
-  render () {
-    return (
-      <div>
-        <h1>Hello, world!</h1>
-        <p>Welcome to your new single-page application, built with:</p>
-        <ul>
-          <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
-          <li><a href='https://facebook.github.io/react/'>React</a> for client-side code</li>
-          <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
-        </ul>
-        <p>To help you get started, we have also set up:</p>
-        <ul>
-          <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return here.</li>
-          <li><strong>Development server integration</strong>. In development mode, the development server from <code>create-react-app</code> runs in the background automatically, so your client-side resources are dynamically built on demand and the page refreshes when you modify any file.</li>
-          <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and your <code>dotnet publish</code> configuration produces minified, efficiently bundled JavaScript files.</li>
-        </ul>
-        <p>The <code>ClientApp</code> subdirectory is a standard React application based on the <code>create-react-app</code> template. If you open a command prompt in that directory, you can run <code>npm</code> commands such as <code>npm test</code> or <code>npm install</code>.</p>
+export function Home() {
+  const insideStyles = {
+    padding: 20,
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%,-50%)"
+  };
+  
+  return (
+    <>
+      <Parallax bgImage={image1} strength={200} blur={2} bgImageAlt="Outdoor basketball hoop">
+        <div style={{ height: 600 }}>
+          <div style={insideStyles}>
+            <h3 className="page-subtitle">Find a basketball court near you</h3>
+            <Input type="text" name="search" id="search" placeholder="Search by court name, city, state, or zipcode"/>
+          </div>
+        </div>
+      </Parallax>
+      <div style={{ height: 600 }} className="padding-top-5">
+        <Row>
+          <Col sm="6">
+            <div className="left-container">
+              <h2 className="page-subtitle" >Need a place to hoop?</h2>
+              <h4>
+                It's not just about finding the best court, it's figuring out the ones to avoid!
+                View ratings and reviews from over [Placeholder] other hoopers in the US.
+              </h4>
+            </div>
+          </Col>
+          <Col sm="6">
+            <div className="right-container">
+              <img src={image2} alt="MacBook" id="macbook"/>
+            </div>
+          </Col>
+        </Row>
       </div>
-    );
-  }
+      <Parallax bgImage={image3} strength={200} blur={5} bgImageAlt="USA Redeem Team">
+        <div style={{ height: 600 }}>
+          <div className="section-title page-subtitle">
+            <h3>Browse Courts by State!</h3>
+            <h4>Over [Placeholder] basketball courts currently on Open Court.</h4>
+            <hr />
+            <Row>
+              {states.map(s => 
+                <Col sm="3" className="mt-2">{s}</Col>
+              )}
+            </Row>
+          </div>
+        </div>
+      </Parallax>
+
+    </>
+  );
 }
