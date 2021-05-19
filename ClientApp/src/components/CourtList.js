@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Row, Col, Label, Input, Button, FormGroup } from "reactstrap"
+import { render } from "react-dom";
+import { Label, Input, Button, FormGroup, Card, CardBody, CardText, CardTitle } from "reactstrap"
 import { Context } from "../context/appContext";
 
 export default function CourtList() {
@@ -10,7 +11,7 @@ export default function CourtList() {
     isIndoor: false,
     isCovidOpen: true,
     state: "America",
-    totalReviews: 0
+    totalReviews: 0,
   });
   
   const renderStateName = () => {
@@ -20,6 +21,78 @@ export default function CourtList() {
     setSearchResults(filteredCourts);
     setFilters({...filters, totalReviews: count});
   };
+
+  const compareNames = (a, b) => {
+    if (a.name < b.name){
+      return -1;
+    }
+    if (a.name > b.name){
+      return 1;
+    }
+    return 0;
+  }
+
+  const compareMostReviewed = (a, b) => {
+    if (a.totalRatingCount < b.totalRatingCount){
+      return -1;
+    }
+    if (a.totalRatingCount > b.totalRatingCount){
+      return 1;
+    }
+    return 0;
+  }
+
+  const compareHighestRated = (a, b) => {
+    if ((a.totalRating / a.totalRatingCount) < (b.totalRating / b.totalRatingCount)){
+      return -1;
+    }
+    if ((a.totalRating / a.totalRatingCount) > (b.totalRating / b.totalRatingCount)){
+      return 1;
+    }
+    return 0;
+  }
+
+  const compareHoops = (a, b) => {
+    if (a.numberOfHoops > b.numberOfHoops){
+      return -1;
+    }
+    if (a.numberOfHoops < b.numberOfHoops){
+      return 1;
+    }
+    return 0;
+  }
+
+  const checkSortType = () => {
+    if(filters.sort === "Name") {
+      setSearchResults(searchResults.sort(compareNames));
+    } else if(filters.sort === "Most Reviewed") {
+      setSearchResults(searchResults.sort(compareMostReviewed));
+    } else if(filters.sort === "Highest Rated") {
+      setSearchResults(searchResults.sort(compareHighestRated));
+    } else if(filters.sort === "Num Hoops") {
+      setSearchResults(searchResults.sort(compareHoops));
+    }
+  }
+
+  const renderLists = () => {
+    checkSortType();
+
+    return (
+      <>
+        {
+          searchResults.map(c => {
+            return(
+              <Card body className="court-card" key={c.courtId}>
+                <CardTitle tag="h5">{c.name} </CardTitle>
+                <CardText>{c.address}</CardText>
+                <CardText>{c.reviews.length} Reviews </CardText>
+              </Card>
+            )
+          })
+        }
+      </>
+    )
+  }
 
   useEffect(() => {
     renderStateName();
@@ -88,6 +161,12 @@ export default function CourtList() {
                   Highest Rated
                 </Label>
               </FormGroup>
+              <FormGroup check>
+                <Label check>
+                  <Input type="radio" name="sortRadio" value="Num Hoops" onChange={updateSort} />
+                  Most Hoops
+                </Label>
+              </FormGroup>
             </FormGroup>
             <FormGroup tag="fieldset">
               <legend className="bold">Setting</legend>
@@ -131,9 +210,7 @@ export default function CourtList() {
               </h2>
             }
             <br />
-            <Button outline size="sm" color="secondary">Sorted by {filters.sort}</Button>
-            <Button style={{ marginLeft: "1rem"}} outline size="sm" color="secondary">Showing courts {filters.isIndoor ? "Indoor" : "Outdoor"}</Button>
-            <Button style={{ marginLeft: "1rem"}} outline size="sm" color="secondary">Showing courts {filters.isCovidOpen ? "Closed by Covid" : "Covid Regulated"}</Button>
+            {renderLists()}
           </div>
         </div>
       </div>
