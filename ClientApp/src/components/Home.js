@@ -6,6 +6,8 @@ import image2 from '../img/macbook.png'
 import image3 from '../img/ball.jpg'
 import states from '../data/states';
 import '../css/custom.css';
+import 'font-awesome/css/font-awesome.min.css';
+import Button from 'reactstrap/lib/Button';
 
 export function Home() {
   const insideStyles = {
@@ -22,7 +24,16 @@ export function Home() {
         <div style={{ height: 600 }}>
           <div style={insideStyles}>
             <h3 className="page-subtitle">Find a basketball court near you</h3>
-            <Input type="text" name="search" id="search" placeholder="Search by court name, city, state, or zipcode"/>
+            <Row>
+              <Col sm="10">
+                <Input type="text" name="search" id="search" placeholder="Search by court name, city, state, or zipcode" />
+              </Col>
+              <Col sm="2">
+                <Button type="click" color="primary">
+                  <i class="fa fa-search"></i>
+                </Button>
+              </Col>
+            </Row>
           </div>
         </div>
       </Parallax>

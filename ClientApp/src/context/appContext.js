@@ -6,7 +6,7 @@ function ContextProvider({children}) {
   const [courts, setCourts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
-  const [search, setSearch] = useState("WA");
+  const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
   const fetchCourts = async() => {
