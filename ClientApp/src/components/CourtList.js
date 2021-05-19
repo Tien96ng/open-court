@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Label, Input, Button, FormGroup, Card, CardText, CardTitle, Container } from "reactstrap"
+import { Label, Input, Button, FormGroup, Card, CardText, CardTitle, Container, Spinner  } from "reactstrap"
 import { Context } from "../context/appContext";
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -237,7 +237,7 @@ export default function CourtList() {
           <div className="right-column">
             {
               loading ? 
-              <h2>No Courts Found</h2> : 
+              <h2> <Spinner color="warning" /> No Courts Found</h2> : 
               <h2>
                 <span className="orange-text">{searchResults.length} courts</span> match your search 
               </h2>

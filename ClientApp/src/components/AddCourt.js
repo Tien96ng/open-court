@@ -6,7 +6,7 @@ export default function AddCourt() {
   const { courts, fetchCourts } = useContext(Context);
 
   useEffect(() => {
-    fetchCourts()
+    fetchCourts();
   }, [courts])
   
   const handleSubmit = e => {
