@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,900;1,900&display=swap');
-
+body {
+  margin-top: 4rem;
+}
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
@@ -107,11 +109,9 @@ a {
 }
 
 .left-column {
-  background-color: blue;
   height: 100%;
 }
 
 .right-column {
-  background-color: green;
   height: 100%;
 }
