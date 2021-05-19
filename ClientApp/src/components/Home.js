@@ -13,7 +13,7 @@ import Button from 'reactstrap/lib/Button';
 import Form from 'reactstrap/lib/Form';
 
 export function Home() {
-  const { search, setSearch} = useContext(Context);
+  const { search, setSearch, courts } = useContext(Context);
 
   const handleSearchChange = e => {
     e.preventDefault();
@@ -74,7 +74,7 @@ export function Home() {
         <div style={{ height: 700 }}>
           <div className="section-title page-subtitle">
             <h3>Browse <span className="orange-text">Courts</span> by State!</h3>
-            <h4>Over <span className="orange-text">[Placeholder]</span> basketball courts currently on Open Court.</h4>
+            <h4>Over <span className="orange-text">{courts.length}</span> basketball courts currently available to view.</h4>
             <hr />
             <Row>
               {states.map((s, index) => (
