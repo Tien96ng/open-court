@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { Context } from '../context/appContext';
+import { Container } from 'reactstrap';
 import AddCourt from './AddCourt';
 
 export default function FetchData() {
   const { courts, loading } = useContext(Context);
 
   return(
-    <>
+    <Container className="container-margin-top">
       <AddCourt />
       {loading ? 
         <h1> Loading... </h1> : 
@@ -16,6 +17,6 @@ export default function FetchData() {
           </div>
         ))
       }
-    </>
+    </Container>
   )
 }

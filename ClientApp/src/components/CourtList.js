@@ -137,7 +137,7 @@ export default function CourtList() {
   useEffect(() => {
     console.log("searchResults Changed!")
     if(searchResults.length > 0) {
-      setFilters({...filters, state: search});
+      search === "" ? setFilters({...filters, state: "America"}) : setFilters({...filters, state: search});
       //setFilters({...filters, state: searchResults[0].address.split(", ")[2]});
     }
     return () => {

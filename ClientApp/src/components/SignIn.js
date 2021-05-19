@@ -6,7 +6,8 @@ export default function SignIn() {
   const { user, setUser } = useContext(Context);
 
   const onFailure = (response) => {
-    setUser({error: "Failed to Login to Google Account."})
+    // setUser({error: "Failed to Login to Google Account."})
+    console.log(response);
   }
 
   const onSuccess = async(response) => {
