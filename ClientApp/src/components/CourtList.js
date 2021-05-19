@@ -44,8 +44,19 @@ export default function CourtList() {
 
   const updateSort = e => {
     if (e.target.checked) {
-      console.log(e.target.value);
       setFilters({...filters, sort: e.target.value})
+    }
+  };
+
+  const updateIndoor = e => {
+    if (e.target.checked) {
+      setFilters({...filters, isIndoor: e.target.value})
+    }
+  };
+
+  const updateCovid = e => {
+    if (e.target.checked) {
+      setFilters({...filters, isCovidOpen: e.target.value})
     }
   };
 
@@ -82,13 +93,13 @@ export default function CourtList() {
               <legend className="bold">Setting</legend>
               <FormGroup check>
                 <Label check>
-                  <Input type="radio" name="indoorRadio" value={true} defaultChecked/>
+                  <Input type="radio" name="indoorRadio" value={true} defaultChecked onChange={updateIndoor} />
                   Indoor
                 </Label>
               </FormGroup>
               <FormGroup check>
                 <Label check>
-                  <Input type="radio" name="indoorRadio" value={false} />
+                  <Input type="radio" name="indoorRadio" value={false} onChange={updateIndoor} />
                   Outdoor
                 </Label>
               </FormGroup>
@@ -97,13 +108,13 @@ export default function CourtList() {
               <legend className="bold">Covid Safe</legend>
               <FormGroup check>
                 <Label check>
-                  <Input type="radio" name="covidRadio" value={true} defaultChecked/>
+                  <Input type="radio" name="covidRadio" value={true} defaultChecked onChange={updateCovid} />
                   Yes
                 </Label>
               </FormGroup>
               <FormGroup check>
                 <Label check>
-                  <Input type="radio" name="covidRadio" value={false} />
+                  <Input type="radio" name="covidRadio" value={false} onChange={updateCovid} />
                   No
                 </Label>
               </FormGroup>
