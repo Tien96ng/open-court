@@ -16,7 +16,7 @@ export default function CourtList() {
   
   const renderStateName = () => {
     let count = 0;
-    let filteredCourts = courts.filter(c => c.address.includes(search));
+    let filteredCourts = courts.filter(c => c.address.toUpperCase().includes(search));
     filteredCourts.forEach(c => count += c.totalRatingCount);
     setSearchResults(filteredCourts);
     setFilters({...filters, totalReviews: count});
@@ -132,17 +132,18 @@ export default function CourtList() {
     return () => {
       console.log("Clean up SearchResults.");
     }
-  }, [loading])
+  }, [loading, search])
 
   useEffect(() => {
     console.log("searchResults Changed!")
     if(searchResults.length > 0) {
-      setFilters({...filters, state: searchResults[0].address.split(", ")[1]});
+      setFilters({...filters, state: search});
+      //setFilters({...filters, state: searchResults[0].address.split(", ")[2]});
     }
     return () => {
       console.log("Clean up Filters.")
     }
-  }, []);
+  }, [search, searchResults]);
 
   const updateSort = e => {
     if (e.target.checked) {
@@ -169,7 +170,7 @@ export default function CourtList() {
       <div className="row">
         <div className="column-1">
           <div className="left-column">
-            <h1 className="page-subtitle">Courts in {filters.state}</h1>
+            <h1 className="page-subtitle">Courts in <br />{filters.state}</h1>
             <h6>{filters.totalReviews} user reviews</h6>
             <FormGroup tag="fieldset">
               <legend className="bold">Sort</legend>
