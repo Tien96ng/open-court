@@ -45,10 +45,10 @@ export default function CourtList() {
   }
 
   const compareHighestRated = (a, b) => {
-    if ((a.totalRating / a.totalRatingCount) < (b.totalRating / b.totalRatingCount)){
+    if (a.totalRating >= b.totalRating){
       return -1;
     }
-    if ((a.totalRating / a.totalRatingCount) > (b.totalRating / b.totalRatingCount)){
+    if (a.totalRating <= b.totalRating){
       return 1;
     }
     return 0;
@@ -101,7 +101,6 @@ export default function CourtList() {
           })}
         </>
       )
-      // return <>Average - {avg} | Num stars - {numStars} | Empty - {emptyStars}</>
     }
   }
 
@@ -117,8 +116,6 @@ export default function CourtList() {
                 <CardTitle tag="h5">{c.name} </CardTitle>
                 <CardText>{c.address}</CardText>
                 <CardText>{renderStars(c.totalRating, c.totalRatingCount)}</CardText>
-                <CardText>{c.totalRating}</CardText>
-                <CardText>{c.totalRatingCount}</CardText>
                 <CardText>{c.reviews.length} Reviews </CardText>
               </Card>
             )
