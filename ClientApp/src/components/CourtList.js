@@ -17,7 +17,9 @@ export default function CourtList() {
   const renderStateName = () => {
     let count = 0;
     let filteredCourts = courts.filter(c => c.address.toUpperCase().includes(search));
-    filteredCourts.forEach(c => count += c.totalRatingCount);
+    filteredCourts.forEach(c => {
+      count += c.reviews.length
+    });
     setSearchResults(filteredCourts);
     setFilters({...filters, totalReviews: count});
   };
@@ -110,7 +112,7 @@ export default function CourtList() {
         {
           searchResults.map(c => {
             return(
-              <Card body className="court-card" key={c.courtId}>
+              <Card body className="court-card bgc-wheat" key={c.courtId}>
                 <CardTitle tag="h5">{c.name} </CardTitle>
                 <CardText>{c.address}</CardText>
                 <CardText>{renderStars(c.totalRating, c.totalRatingCount)}</CardText>
@@ -170,7 +172,7 @@ export default function CourtList() {
       <div className="row">
         <div className="column-1">
           <div className="left-column">
-            <h1 className="page-subtitle">Courts in <br />{filters.state}</h1>
+            <h1 className="page-subtitle">Courts in <br /><span className="orange-text">{filters.state}</span></h1>
             <h6>{filters.totalReviews} user reviews</h6>
             <FormGroup tag="fieldset">
               <legend className="bold">Sort</legend>
