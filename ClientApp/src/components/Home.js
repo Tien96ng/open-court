@@ -5,7 +5,7 @@ import { Input, Row, Col, InputGroup, InputGroupAddon, InputGroupText } from 're
 import { Link } from 'react-router-dom';
 import image1 from '../img/fall.jpg';
 import image2 from '../img/macbook.png'
-import image3 from '../img/ball.jpg'
+import image3 from '../img/outdoor-rim.jpeg'
 import states from '../data/states';
 import '../css/custom.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -31,7 +31,7 @@ export function Home() {
       <Parallax bgImage={image1} strength={200} blur={0} bgImageAlt="Outdoor basketball hoop">
         <div style={{ height: 600 }}>
           <div style={insideStyles}>
-            <h3 className="page-subtitle">Find a basketball court near you</h3>
+            <h3 className="page-subtitle white-text">Find a basketball court near you</h3>
               <InputGroup>
                 <Input 
                   type="text" 
@@ -68,9 +68,9 @@ export function Home() {
           </Col>
         </Row>
       </div>
-      <Parallax bgImage={image3} strength={200} blur={0} bgImageAlt="basketball on white background">
+      <Parallax bgImage={image3} strength={200} blur={1} bgImageAlt="basketball on white background">
         <div style={{ height: 700 }}>
-          <div className="section-title page-subtitle">
+          <div className="section-title page-subtitle white-text">
             <h3>Browse <span className="orange-text">Courts</span> by State!</h3>
             <h4>Over <span className="orange-text">{courts.length}</span> basketball courts currently available to view.</h4>
             <hr />
@@ -78,7 +78,7 @@ export function Home() {
               {states.map((s, index) => (
                 <Col key={index} sm="3" className="mt-2">
                   <Link to="/court-list">
-                    <h5 className="page-subtitle" onClick={() => setSearch(s[1])}>
+                    <h5 className="segoe-font white-text" onClick={() => setSearch(s[1])}>
                       {s[0]}
                     </h5>
                   </Link>
