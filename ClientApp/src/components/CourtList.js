@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import CourtCard from './CourtCard';
+import ParallaxHeader from './ParallexHeader';
 import { Link } from 'react-router-dom';
 import { Label, Input, Button, FormGroup, Container, Spinner  } from "reactstrap"
 import { Context } from "../context/appContext";

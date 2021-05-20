@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../context/appContext';
 import { Toast, ToastHeader, ToastBody } from 'reactstrap';
 import blankProfile from '../img/blank-face.jpeg'
+import 'font-awesome/css/font-awesome.min.css';
 
 export default function LoginToast() {
   const { user } = useContext(Context);

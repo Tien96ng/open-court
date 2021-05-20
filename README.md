@@ -9,24 +9,29 @@
 
 ## _Technologies Used_ ⚙
 
+* **Bootstrap / ReactStrap**
 * **C# / .NET**
-* **Entity MVC**
-* **MySQL**
-* **JavaScript**
-* **JSX**
-* **ReactJs**
-* **React Context**
-* **JEST**
-* **React Bootstrap**
-* **NPM**
-* **ESLint**
-* **Babel**
+* **Cross ENV**
+* **CSS3**
 * **Draw.io**
+* **ESLint**
+* **Entity MVC Framework**
+* **FontAwesome**
+* **JSX**
+* **JavaScript**
+* **MySQL**
+* **Pomelo**
+* **React**
+* **React Context**
+* **React Google**
+* **React Router**
 
 ---
 
 ## _Description_ 📃
-A centralized destination to view local to nationwide indoor and outdoor basketball courts ratings (RateMyProfessor but for Basketball Courts).
+My favorite hobby that helped me expand my social and team building skills in life has been basketball. But since COVID-19 occurred, the majority of gyms and outdoor basketball courts have been closed. As the epidemic is coming to a steady end (hopefully), gyms and courts start opening up.
+
+With that being said, this web app can be a centralized place to find open courts or just basketball courts in general.
 
 
 ---
@@ -38,6 +43,15 @@ A centralized destination to view local to nationwide indoor and outdoor basketb
 
 ### **Mock Landing Page Design via [Draw.io](https://app.diagrams.net/)**
 ![](Design/Open-Court-Home.svg)
+
+### **Toast Notification for Logins and Guest(s)**
+<img src="Design/Login-Notifcation.gif" alt="login notifcation" />
+
+### **Court Sort Functionality**
+<img src="Design/Sort.gif" alt="login notifcation" />
+
+### **Search by Location Functionality**
+<img src="Design/Search.gif" alt="login notifcation" />
 
 </details>
 
@@ -61,16 +75,26 @@ A centralized destination to view local to nationwide indoor and outdoor basketb
 
 ---
 
-
----
-
 ## _Known Bugs_ 🩹
-* None at the moment (4/23/2021)
+* None at the moment (5/20/2021)
 
 ---
 
 ## _Future Updates_ 🛠
-* 
+* User profile page.
+* Favorites page for each user.
+* Details page render for each court for more specific information.
+* Reviews to show in details page
+* Google Maps API to drop a pin and render a Map for the location of each court.
+* Users can post a review of any court.
+* Users can favorite a court and save it to their profile.
+* Move from ReactStrap to Material UI headless components
+* JWT Authentication for backend .NET API.
+* Full CRUD in backend for Reviews.
+* Full CRUD in backend for Users (Admin use).
+* More login options besides Google.
+* Deploy and host the web app.
+
 
 
 ---

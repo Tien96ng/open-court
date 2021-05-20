@@ -24,7 +24,9 @@ namespace open_court.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Address")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.Property<bool>("IsCovidOpen")
                         .HasColumnType("tinyint(1)");
@@ -33,7 +35,9 @@ namespace open_court.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.Property<int>("NumberOfHoops")
                         .HasColumnType("int");
@@ -264,7 +268,7 @@ namespace open_court.Migrations
                         {
                             ReviewId = 1,
                             CourtId = 1,
-                            PostDate = new DateTime(2021, 5, 18, 8, 11, 55, 92, DateTimeKind.Local).AddTicks(2018),
+                            PostDate = new DateTime(2021, 5, 19, 23, 45, 12, 482, DateTimeKind.Local).AddTicks(3290),
                             ReviewText = "Best place to hoop in Tacoma!"
                         });
                 });
