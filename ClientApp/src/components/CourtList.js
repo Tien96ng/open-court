@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Label, Input, Button, FormGroup, Card, CardText, CardTitle, Container, Spinner  } from "reactstrap"
+import CourtCard from './CourtCard';
+import { Label, Input, Button, FormGroup, Container, Spinner  } from "reactstrap"
 import { Context } from "../context/appContext";
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -111,33 +112,23 @@ export default function CourtList() {
       <>
         {
           searchResults.map(c => {
-
             return(
-              <Card body className="court-card bgc-wheat" key={c.courtId}>
-                <CardTitle tag="h5">{c.name} </CardTitle>
-                <CardText>{c.address}</CardText>
-                <CardText>{renderStars(c.totalRating, c.totalRatingCount)}</CardText>
-                <CardText>{c.numberOfHoops} Hoops </CardText>
-                <CardText>{c.reviews.length} Reviews </CardText>
-              </Card>
+              <> 
+                <CourtCard
+                  id={c.courtId}
+                  name={c.name}
+                  address={c.address}
+                  renderStars={renderStars(c.totalRating, c.totalRatingCount)}
+                  hoops={c.numberOfHoops}
+                  reviews={c.reviews.length}
+                />
+              </>
             )
           })
         }
       </>
     )
-  }
-
-  const renderCard = (id, name, address, total, count, hoops, reviews) => {
-    return(
-      <Card body className="court-card bgc-wheat" key={id}>
-        <CardTitle tag="h5">{name} </CardTitle>
-        <CardText>{address}</CardText>
-        <CardText>{renderStars(total, count)}</CardText>
-        <CardText>{hoops} Hoops </CardText>
-        <CardText>{reviews} Reviews </CardText>
-      </Card>
-    )
-  }
+  };
 
   useEffect(() => {
     renderStateName();
