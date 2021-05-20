@@ -96,7 +96,7 @@ With that being said, this web app can be a centralized place to find open court
 * User profile page.
 * Favorites page for each user.
 * Details page render for each court for more specific information.
-* Reviews to show in details page
+* Reviews to show in details page.
 * Google Maps API to drop a pin and render a Map for the location of each court.
 * Users can post a review of any court.
 * Users can favorite a court and save it to their profile.
