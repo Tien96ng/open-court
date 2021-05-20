@@ -80,6 +80,18 @@ With that being said, this web app can be a centralized place to find open court
 
 ---
 
+## _Current Features_ 🏀 
+* Users should be able to log in via their Google email.
+* Ability to search for Basketball courts on location (Street, City, State, or ZipCode).
+* Login verification for full access.
+* Sort-ability by Name, Number of hoops, reviews, or ratings.
+* Filter by indoor or door type of basketball court.
+* Filter by COVID-19 safe or closed.
+* Add a new court by API POST.
+* Full CRUD in backend .NET API for Courts (“api/courts”).
+
+---
+
 ## _Future Updates_ 🛠
 * User profile page.
 * Favorites page for each user.
