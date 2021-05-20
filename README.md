@@ -107,7 +107,7 @@ With that being said, this web app can be a centralized place to find open court
 * More login options besides Google.
 * Deploy and host the web app.
 
-
+<img src="https://media.giphy.com/media/QGZBpodY7Kdtw99y04/giphy.gif" alt="Kobe"  height="200"/>
 
 ---
 
