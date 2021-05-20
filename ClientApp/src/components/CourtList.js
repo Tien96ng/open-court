@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import CourtCard from './CourtCard';
+import { Link } from 'react-router-dom';
 import { Label, Input, Button, FormGroup, Container, Spinner  } from "reactstrap"
 import { Context } from "../context/appContext";
 import 'font-awesome/css/font-awesome.min.css';
@@ -260,6 +261,7 @@ export default function CourtList() {
             <Button style={{ marginLeft: "1rem"}} outline size="sm" color="secondary">Showing Courts <span className="bold">{filters.isIndoor}</span></Button>
             <Button style={{ marginLeft: "1rem"}} outline size="sm" color="secondary">Showing Courts <span className="bold">{filters.isCovidOpen}</span></Button>
             {renderLists()}
+            <h4 className="page-subtitle padding-top-5">Can't find the basketball court you're looking for? <Link to="/fetch-data" className="orange-text">Add it here</Link></h4>
           </div>
         </div>
       </div>

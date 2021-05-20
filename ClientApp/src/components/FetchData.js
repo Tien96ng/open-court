@@ -10,7 +10,7 @@ export default function FetchData() {
     <Container className="container-margin-top">
       {
         user === null ? 
-        <h2 className="section-title page-subtitle center-text">Please Sign in to access this page!</h2> :
+        <h2 className="section-title page-subtitle center-text red-text">Please Sign in to access this page!</h2> :
         <AddCourt />
       }
     </Container>

@@ -154,3 +154,7 @@ a {
   opacity:1;
   transition: width 1.5s, height 1.5s, opacity 1.5s 1.5s;
 }
+
+.red-text {
+  color: red;
+}
