@@ -4,7 +4,7 @@ import { Container } from 'reactstrap';
 import AddCourt from './AddCourt';
 
 export default function FetchData() {
-  const { courts, loading, user } = useContext(Context);
+  const { user } = useContext(Context);
 
   return(
     <Container className="container-margin-top">

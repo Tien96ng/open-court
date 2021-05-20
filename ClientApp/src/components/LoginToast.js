@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../context/appContext';
-import { Toast, ToastHeader, ToastBody, Row, Col } from 'reactstrap';
+import { Toast, ToastHeader, ToastBody } from 'reactstrap';
 import blankProfile from '../img/blank-face.jpeg'
 
 export default function LoginToast() {
@@ -32,8 +32,8 @@ export default function LoginToast() {
               <div className="right-column">
                 {
                   user === null ? 
-                  "Please sign in with your Google account to view all te features OpenCourt offers!" :
-                  `Please check your Email: ${user.email} for updates!`  
+                  "Please sign in with your Google account to view all the features OpenCourt offers!" :
+                  `Please check your email: ${user.email} for updates!`  
                 }
               </div>
             </div>

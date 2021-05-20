@@ -42,7 +42,7 @@ export default function SignIn() {
         <GoogleLogin
           clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
           render={renderProps => (
-            <Button onClick={renderProps.onClick} disabled={renderProps.disabled} color="success" size="sm"><i class="fa fa-google"></i> Login</Button>
+            <Button onClick={renderProps.onClick} disabled={renderProps.disabled} color="success" size="sm"><i className="fa fa-google"></i> Login</Button>
           )}
           buttonText="Login"
           onSuccess={onSuccess}
@@ -53,7 +53,7 @@ export default function SignIn() {
         <GoogleLogout
           clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
           render={renderProps => (
-            <Button onClick={renderProps.onClick} disabled={renderProps.disabled} color="danger" size="sm"><i class="fa fa-sign-out"></i> Logout</Button>
+            <Button onClick={renderProps.onClick} disabled={renderProps.disabled} color="danger" size="sm"><i className="fa fa-sign-out"></i> Logout</Button>
           )}
           buttonText="Logout"
           onLogoutSuccess={onLogoutSuccess}

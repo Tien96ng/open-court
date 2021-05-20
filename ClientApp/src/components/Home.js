@@ -9,8 +9,6 @@ import image3 from '../img/ball.jpg'
 import states from '../data/states';
 import '../css/custom.css';
 import 'font-awesome/css/font-awesome.min.css';
-import Button from 'reactstrap/lib/Button';
-import Form from 'reactstrap/lib/Form';
 
 export function Home() {
   const { search, setSearch, courts } = useContext(Context);

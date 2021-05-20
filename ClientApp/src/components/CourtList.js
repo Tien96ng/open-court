@@ -9,7 +9,7 @@ export default function CourtList() {
   const [filters, setFilters] = useState({
     sort: "Name",
     isIndoor: "Outdoor",
-    isCovidOpen: "Covid Regulated",
+    isCovidOpen: "COVID-19 Regulated",
     state: "America",
     totalReviews: 0,
   });
@@ -111,17 +111,31 @@ export default function CourtList() {
       <>
         {
           searchResults.map(c => {
+
             return(
               <Card body className="court-card bgc-wheat" key={c.courtId}>
                 <CardTitle tag="h5">{c.name} </CardTitle>
                 <CardText>{c.address}</CardText>
                 <CardText>{renderStars(c.totalRating, c.totalRatingCount)}</CardText>
+                <CardText>{c.numberOfHoops} Hoops </CardText>
                 <CardText>{c.reviews.length} Reviews </CardText>
               </Card>
             )
           })
         }
       </>
+    )
+  }
+
+  const renderCard = (id, name, address, total, count, hoops, reviews) => {
+    return(
+      <Card body className="court-card bgc-wheat" key={id}>
+        <CardTitle tag="h5">{name} </CardTitle>
+        <CardText>{address}</CardText>
+        <CardText>{renderStars(total, count)}</CardText>
+        <CardText>{hoops} Hoops </CardText>
+        <CardText>{reviews} Reviews </CardText>
+      </Card>
     )
   }
 
@@ -190,14 +204,14 @@ export default function CourtList() {
               </FormGroup>
               <FormGroup check>
                 <Label check>
-                  <Input type="radio" name="sortRadio" value="Highest Rated" onChange={updateSort} />
-                  Highest Rated
+                  <Input type="radio" name="sortRadio" value="Number of Hoops" onChange={updateSort} />
+                  Most Hoops
                 </Label>
               </FormGroup>
               <FormGroup check>
                 <Label check>
-                  <Input type="radio" name="sortRadio" value="Number of Hoops" onChange={updateSort} />
-                  Most Hoops
+                  <Input type="radio" name="sortRadio" value="Highest Rated" onChange={updateSort} />
+                  Highest Rated
                 </Label>
               </FormGroup>
             </FormGroup>
@@ -217,16 +231,16 @@ export default function CourtList() {
               </FormGroup>
             </FormGroup>
             <FormGroup tag="fieldset">
-              <legend className="bold">Covid Safe</legend>
+              <legend className="bold">COVID-19 Safe</legend>
               <FormGroup check>
                 <Label check>
-                  <Input type="radio" name="covidRadio" value="Covid Regulated" defaultChecked onChange={updateCovid} />
+                  <Input type="radio" name="covidRadio" value="COVID-19 Regulated" defaultChecked onChange={updateCovid} />
                   Yes
                 </Label>
               </FormGroup>
               <FormGroup check>
                 <Label check>
-                  <Input type="radio" name="covidRadio" value="Closed via Covid" onChange={updateCovid} />
+                  <Input type="radio" name="covidRadio" value="Closed via COVID-19" onChange={updateCovid} />
                   No
                 </Label>
               </FormGroup>
@@ -251,9 +265,9 @@ export default function CourtList() {
               <i className="fa fa-star white-blk-outline"></i>
               <i className="fa fa-star white-blk-outline"></i>
             </p>
-            <Button outline size="sm" color="secondary">Sorted by {filters.sort}</Button>
-            <Button style={{ marginLeft: "1rem"}} outline size="sm" color="secondary">Showing courts {filters.isIndoor}</Button>
-            <Button style={{ marginLeft: "1rem"}} outline size="sm" color="secondary">Showing courts {filters.isCovidOpen}</Button>
+            <Button outline size="sm" color="secondary">Sorted by <span className="bold">{filters.sort}</span></Button>
+            <Button style={{ marginLeft: "1rem"}} outline size="sm" color="secondary">Showing Courts <span className="bold">{filters.isIndoor}</span></Button>
+            <Button style={{ marginLeft: "1rem"}} outline size="sm" color="secondary">Showing Courts <span className="bold">{filters.isCovidOpen}</span></Button>
             {renderLists()}
           </div>
         </div>

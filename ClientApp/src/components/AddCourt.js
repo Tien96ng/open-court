@@ -7,6 +7,9 @@ export default function AddCourt() {
 
   useEffect(() => {
     fetchCourts();
+    return() => {
+      console.log("Unmount fetch!")
+    }
   }, [courts])
   
   const handleSubmit = e => {

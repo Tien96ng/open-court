@@ -7,7 +7,7 @@ export default function Footer() {
     <>
       <div style={{ height: 300 }} className="padding-top-5 center-text">
           <h2>Open<span className="orange-text">Court</span> Contact </h2>
-          <h5>© 2020 Copyright: Tien Nguyen</h5>
+          <h5>© 2021 Copyright: Tien Nguyen</h5>
           <a href="https://github.com/Tien96ng/open-court" target="_blank" rel="noopener noreferrer">
             <h5>
               <i className="fa fa-github"></i>
